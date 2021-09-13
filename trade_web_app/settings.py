@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'trade_web_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_base_crm_v3',
+        'NAME': 'django_base_dev',
         'USER': 'userdjango',
         'PASSWORD': 'passdjango',
         'HOST': 'db',
