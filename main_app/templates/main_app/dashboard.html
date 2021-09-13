@@ -1,0 +1,55 @@
+{% extends 'main_app/main.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <br>
+
+
+    <br>
+    <div class="row">
+
+        <div class="col-md-5">
+
+            <hr>
+
+            <div class="">
+
+                <table class="table">
+
+                    <tr>
+                        <th>Exchange</th>
+                        <th>Symbol</th>
+                        <th>Type Order</th>
+                        <th>Side</th>
+                        <th>Time In Force</th>
+                        <th>Update</th>
+
+                    </tr>
+                    {% for data in datas %}
+                    <tr>
+                        <td>{{ data.symbol.exchange }}</td>
+                        <td>{{ data.symbol.cryptocurrency }}</td>
+                        <td>{{ data.type }}</td>
+                        <td>{{ data.side }}</td>
+                        <td>{{ data.time_in_force }}</td>
+                        <td><a href="{{ data.get_absolute_url }}" class="btn btn-primary">Update</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <form method="GET">
+                    {{ orderForm }}
+                    <input type="submit" class="btn btn-success" value="Go">
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

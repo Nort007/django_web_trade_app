@@ -1,0 +1,5 @@
+django
+ccxt
+requests
+django-filter==2.4.0
+psycopg2

@@ -1,0 +1,5 @@
+<select>
+    {% for symbol in symbols %}
+    <option id="id_symbol" value="{{ symbol.pk }}">{{ symbol }}</option>
+    {% endfor %}
+</select>

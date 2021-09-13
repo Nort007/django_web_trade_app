@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  db:
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    build:
+      # в context он смотрит Dockerfile
+      # dockerfile: Dockerfile - докерфайл с настрами бд.
+      # можно еще указать как ./Dockerfile - также увидит без ошибок.
+      context: postgres
+      dockerfile: Dockerfile
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
+  web:
+    build: .
+    command: "python ./manage.py runserver 0.0.0.0:8000"
+    container_name: django_web
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
